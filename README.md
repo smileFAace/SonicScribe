@@ -1,3 +1,5 @@
+**注：当前只有介绍文档，源码还在整理中……**
+
 # 🎙️ 声文智汇 - SonicScribe
 
 <p align="center">
