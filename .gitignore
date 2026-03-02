@@ -1,0 +1,60 @@
+
+# ————涉及开发的文件夹和文件——
+config
+frontend
+src
+deploy一键部署.bat
+deploy一键部署.sh
+requirements.txt
+sonicscribe-app.py
+
+
+# ——涉及开发元数据的文件夹和文件——
+.dist/
+.claude/
+test_runs/
+meta-docs/
+docs/
+memory/
+CLAUDE.md
+CLAUDE_template.md
+AGENT.md
+scripts/
+
+# ——本地文件——
+
+# 可以随私有库转移
+tasks.json
+*.db
+*.sqlite
+*.sqlite3
+
+# 不想转移，即使是私有库也不想转移
+.env
+.env.local
+config/settings.json
+
+
+# ——其它缓存——
+
+# Python
+temp/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+build/
+dist/
+
+# IDE specific
+.vscode/
+.idea/
+
+# npm cache
+.npm-cache
+frontend/.npm-cache
+frontend/node_modules/
+frontend/dist/
+
