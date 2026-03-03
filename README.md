@@ -3,14 +3,19 @@
 
 # 🎙️ 声文智汇 - SonicScribe
 
-<p align="center">
-    <picture>
-        <img src="prj-docs/images/web-wide.png" alt="SonicScribe" width="800">
-    </picture>
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="prj-docs/images/web-wide.png" alt="SonicScribe PC 宽屏界面" width="760">
+    </td>
+    <td align="center">
+      <img src="prj-docs/images/web-thin.png" alt="SonicScribe 手机窄屏界面" width="240">
+    </td>
+  </tr>
+</table>
 
 <p align="center">
-  <strong>将视频转化为详实文章</strong>
+  <strong>界面展示（PC宽屏 + 手机窄屏）</strong>
 </p>
 
 <p align="center">
