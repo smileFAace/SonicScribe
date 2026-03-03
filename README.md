@@ -1,4 +1,4 @@
-### **注：当前仅提供文档展示，源码部分待收集反馈并进一步调整后考虑发布**
+### **注：当前仅提供文档展示，源码部分待收集反馈并进一步调整后发布**
 ---
 
 # 🎙️ 声文智汇 - SonicScribe
@@ -61,15 +61,18 @@
 对于标准模式，根据模型上下文能力不同，建议一次总结的视频长度不超过 40min - 1h
 #### **2. 丰富输出 📊**
 时间戳、Mermaid 图表、Markdown 一键成图导出
-- **一键成图**效果展示 （[《认知的提高需要多读书，还是多见人，多遇事》](https://www.bilibili.com/video/BV1iQfGBGEFQ) By [知行同学jiang](https://space.bilibili.com/3546920150633165)）
 
 <p align="center">
-  <a href="prj-docs/images/showoff/完整图.png">
-    <img src="prj-docs/images/showoff/部分图.png" alt="SonicScribe 输出效果" width="350">
-  </a>
+  <img src="prj-docs/images/picture-worker.png" alt="最终生成图片预览" width="700">
   <br>
-  <em>点击查看完整输出示例</em>
 </p>
+
+- **成图工作台**：支持先预览再导出，避免反复试错
+  - 可调输出宽度、页面比例（如 9:64 超长图）
+  - 可配置元信息显示策略（如仅首图显示）
+  - 可选编码格式（JPEG 推荐）、渲染精度、目标体积（KB）
+  - 支持压缩质量、字体缩放、间距缩放微调，兼顾清晰度与体积
+  - 右侧实时查看最终排版效果（正文 + Mermaid 图表），更适合分享与归档
 
 #### **3. 多任务管理 🧾**
 进度条实时显示任务状态，任务元数据、视频链接可追溯，支持任务处理流水线
