@@ -1,4 +1,4 @@
-### **注：当前仅提供文档展示，源码部分待收集反馈并进一步调整后考虑发布**
+### **注：当前仅提供文档展示，源码部分待收集反馈并进一步调整后发布**
 ---
 
 # 🎙️ 声文智汇 - SonicScribe
@@ -61,15 +61,18 @@
 对于标准模式，根据模型上下文能力不同，建议一次总结的视频长度不超过 40min - 1h
 #### **2. 丰富输出 📊**
 时间戳、Mermaid 图表、Markdown 一键成图导出
-- **一键成图**效果展示 （[《认知的提高需要多读书，还是多见人，多遇事》](https://www.bilibili.com/video/BV1iQfGBGEFQ) By [知行同学jiang](https://space.bilibili.com/3546920150633165)）
 
 <p align="center">
-  <a href="prj-docs/images/showoff/完整图.png">
-    <img src="prj-docs/images/showoff/部分图.png" alt="SonicScribe 输出效果" width="350">
-  </a>
+  <img src="prj-docs/images/picture-worker.png" alt="最终生成图片预览" width="700">
   <br>
-  <em>点击查看完整输出示例</em>
 </p>
+
+- **成图工作台**：支持先预览再导出，避免反复试错
+  - 可调输出宽度、页面比例（如 9:64 超长图）
+  - 可配置元信息显示策略（如仅首图显示）
+  - 可选编码格式（JPEG 推荐）、渲染精度、目标体积（KB）
+  - 支持压缩质量、字体缩放、间距缩放微调，兼顾清晰度与体积
+  - 右侧实时查看最终排版效果（正文 + Mermaid 图表），更适合分享与归档
 
 #### **3. 多任务管理 🧾**
 进度条实时显示任务状态，任务元数据、视频链接可追溯，支持任务处理流水线
@@ -83,7 +86,16 @@ Bilibili直链转换；本地音频/视频文件上传
 
 不在上述列表中的文件会在上传时直接提示“格式不支持”并拒绝处理。
 #### **5. CPU 友好 + GPU 加速 ⚡**
-tiny 转录模型下 i7-12700 转录效率 10x 实时速度，支持 CUDA 更快
+默认即开即用的 `CPU` 转录体验，同时提供可切换的 `CUDA` 加速路径：
+
+- **CPU 开箱可用**：默认 `tiny + CPU`，在 i7-12700 上实测约 `10x` 识别倍率（具体耗时与音频质量、模型大小有关）
+- **CUDA 智能诊断**：自动检测 `NVIDIA / PyTorch CUDA / CTranslate2` 状态；可用时启用 GPU 转录，不可用时给出原因与处理建议
+- **字幕优先，回退语音识别**：可开启“优先使用字幕”，未获取到字幕时自动回退到本地语音识别
+
+<p align="center">
+  <img src="prj-docs/images/subtitle.png" alt="CPU/CUDA 转录切换与 B 站字幕优先开关" width="320">
+</p>
+
 #### **6. PC / 手机端Web阅读支持 📱**
 宽屏/窄屏自适应布局，良好阅读体验
 
@@ -205,7 +217,8 @@ SonicScribe 当前版本使用 **JSON 单一配置源**：
     "model_path": "E:/models/faster-whisper/tiny",
     "model_size": "tiny",
     "device": "cpu",
-    "enable_bilibili_subtitle_fetch": true
+    "enable_bilibili_subtitle_fetch": true,
+    "bilibili_sessdata": ""
   },
   "llm": {
     "provider": "openai_compatible",
@@ -217,6 +230,14 @@ SonicScribe 当前版本使用 **JSON 单一配置源**：
   }
 }
 ```
+
+### B 站字幕直取与 Cookie 来源
+
+- 当开启 `enable_bilibili_subtitle_fetch` 时，B 站任务会优先尝试直取字幕，失败自动回退到下载+ASR。
+- `SESSDATA` 来源优先级为：
+  1. 全局配置（转录设置面板保存到 `config/settings.json`）
+  2. 环境变量（`BILIBILI_SESSDATA` / `SESSDATA`）
+- 前端仅显示掩码值与来源，不显示明文。
 
 
 ---
